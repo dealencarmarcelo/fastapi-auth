@@ -5,10 +5,10 @@ from app.main import app
 client = TestClient(app)
 
 
-def test_root_should_returns_200():
+def test_health_should_returns_200():
     client = TestClient(app)
 
-    response = client.get('/')
+    response = client.get('/api/health')
 
     assert response.status_code == 200
-    assert response.json() == {'message': 'Hello World'}
+    assert response.json() == {'message': 'OK'}
